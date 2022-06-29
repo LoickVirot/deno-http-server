@@ -1,18 +1,15 @@
 import AppRequest from "../core/http/AppRequest.ts";
+import { controllers } from "./services.ts"
 
 export const routes = [
     {
         path:       '/hello',
         method:     'GET',
-        controller: (req: AppRequest) => {
-            return new Response('Hello world');
-        }
+        controller: controllers.helloController.hello
     },
     {
         path:       '/hello/:term',
         method:     'GET',
-        controller: (req: AppRequest) => {
-            return new Response('Hello ' + req.params.term);
-        }
+        controller: controllers.helloController.customHello
     }
 ]
